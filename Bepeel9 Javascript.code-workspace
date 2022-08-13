@@ -4,5 +4,15 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"workbench.colorCustomizations": {
+
+		"terminal.background": "#000",
+		"terminal.foreground": "#00ff00",
+		"terminal.selectionBackground": "#ffff00",
+		"terminal.selectionForeground": "#000000",
+		"terminal.ansiGreen": "#fff",
+		"terminal.ansiYellow": "#00b7ff"
+		}
+	}
 }
