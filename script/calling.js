@@ -61,4 +61,32 @@ const basePrice = function(priceIncl, vatPercentage){
     return console.log('Price exluding VAT ' + priceExVat);
 }
 
-basePrice(1210, 1.21)
+// basePrice(1210, 1.21)
+
+//extra opdracht van mezelf.
+
+const checkBTW = function(basisPrijs, btwPercentage){
+    const btwPrijs = basisPrijs / ((btwPercentage / 100) + 1);
+    return btwPrijs;
+}
+
+const exPrice = function(basisPrijs, btwPercentage){
+    const btwPrijsEx = basisPrijs * (btwPercentage / 100);
+    return btwPrijsEx;
+}
+
+const priceCalculation = function(basisPrijs, btwPercentage, inExbtw){
+    if(inExbtw == 'incl'){
+        console.log('Your base price = ' + basisPrijs);
+        console.log('The VAT of your price = ' + (basisPrijs - checkBTW(basisPrijs, btwPercentage)));
+        console.log('The price exlusive VAT = ' + checkBTW(basisPrijs, btwPercentage));
+        
+    }
+    else{
+        console.log('Your base price = ' + basisPrijs);
+        console.log('The VAT of your price = ' + exPrice(basisPrijs, btwPercentage));
+        console.log('The price including VAT = ' + (basisPrijs + exPrice(basisPrijs, btwPercentage)));
+    }
+}
+
+priceCalculation(1000, 21, 'ex')
