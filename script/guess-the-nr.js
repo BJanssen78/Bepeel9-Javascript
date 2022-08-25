@@ -17,22 +17,43 @@ Dank je wel Niels.
     );
 })();//Einde hebbe dingetje van Niels.
 
-let name = prompt('Welcome, what is your name? ... ');
+console.log('Welcome to "Guess the number game"');
+let lives = 5;
+let maxNumber = 25; //Standaard waarde is 25
 
 const greetUser = function(name){
     if(name != null){
+        
         console.log('A plessure to meet you ' + name);
     }
     else{
-        console.log('Welcome, what is your name? ... ');
+        let name = prompt('Welcome, what is your name? ... ');
+        if(name === null){
+            let name = prompt('This is not a name, may i know your name? ... ');
+            // return name;
+        }
+        else{
+            return alert('A plessure to meet you ' + name);
+        }
+        return name;
+    }
+}
+
+const userLives = function(userAnswer){
+    if(userAnswer){
+        alert('Seems you have guest the correct number, here is an additional live to spare');
+        lives++
+    }
+    else{
+        lives--;
     }
 }
 
 const createNr = function(){
-    let randomnr = Math.floor(Math.random() * 25);
+    let randomnr = Math.floor(Math.random() * maxNumber);
     console.log(randomnr);
     return randomnr;
 }
 
 createNr();
-greetUser();
+// greetUser();
