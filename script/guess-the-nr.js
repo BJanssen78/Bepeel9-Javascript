@@ -18,16 +18,24 @@ Dank je wel Niels.
 })();//Einde hebbe dingetje van Niels.
 
 console.log('Welcome to "Guess the number game"');
-let lives = 5;
+let userlives = 5;
 let maxNumber = 25; //Standaard waarde is 25
+let userAttempt = 5;
 
 const greetUser = function(name){
-    if(name != null){
-        
-        console.log('A plessure to meet you ' + name);
+    // let name = prompt('Welcome, what is your name? ... ');
+    const userName = name.trim();
+    if(userName != null){
+        console.log('A plessure to meet you ' + userName);
+        userAnswer = prompt('Would you like to guess the number i have in mind?' + 
+                            'It\'s very simpel, just type a number between 0 and '+ maxNumber +
+                            'If your answer is correct, you get an additional live, if your answer is wrong, you lose a live' +
+                            'You have 5 attempts to guess the number' +
+                            'If you don\'t want to play or stop the game, just type stop');
+        return userAnswer;
     }
     else{
-        let name = prompt('Welcome, what is your name? ... ');
+        
         if(name === null){
             let name = prompt('This is not a name, may i know your name? ... ');
             // return name;
@@ -39,21 +47,40 @@ const greetUser = function(name){
     }
 }
 
-const userLives = function(userAnswer){
-    if(userAnswer){
-        alert('Seems you have guest the correct number, here is an additional live to spare');
-        lives++
-    }
-    else{
-        lives--;
-    }
-}
-
 const createNr = function(){
     let randomnr = Math.floor(Math.random() * maxNumber);
     console.log(randomnr);
     return randomnr;
 }
 
+const attempt = function(userAnswer){
+    if(userAnswer === 'stop' || 'Stop'){
+        return alert('Sorry to see you leave, see you next time ' + userName + userAnswer);
+    }
+    else if(userAnswer === randomnr){
+        userlives++;
+        alert('Yeah, well done, here\'s your reward.' +
+                'You\'re new live count is ') + userlives; 
+        createNr();
+        return;
+    }
+    else{
+        let userHintMin = randomnr - 5;
+        let userHintMax = randomnr + 5;
+        userAttempt--;
+        userlives--;
+        prompt('Sorry, that is not correct' + 
+            'The number is between ' + userHintMin + ' and ' + userHintMax +
+            'You have ' + userAttempt + ' attempts and ' + userlives + ' lives left.');
+        return;
+    }
+}
+
 createNr();
-// greetUser();
+greetUser(String());
+// attempt(prompt('Enter a number'));
+
+for (let userName = String(''); userName == null || undefined || ''; attempt(prompt('Enter a number'))){
+    greetUser(String(prompt('What is your name?')));
+    return userName;
+}
