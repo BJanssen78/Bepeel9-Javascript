@@ -2,7 +2,7 @@
 let userLives = 5;
 // let userAttempt = 5;
 let userMaxNr = 25; // Optioneel door gebruiker in te voeren
-let userName = String('')
+let userName = String('');
 
 //seperate functies
 const createNr = function(){
