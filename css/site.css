@@ -1,1 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&display=swap");/*# sourceMappingURL=site.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&display=swap");
+body {
+  margin: auto;
+  padding: 0;
+  text-align: center;
+}
+
+.threeD-box {
+  background-color: gray;
+  width: 1000px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-side {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+.one {
+  transform: skew(-20deg);
+  background-color: red;
+}
+
+.two {
+  transform: skew(-10deg, 25deg);
+  background-color: greenyellow;
+}/*# sourceMappingURL=site.css.map */

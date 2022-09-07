@@ -9,16 +9,16 @@ const createNr = function(){
     return randomnr;
 }
 
-const greeting = function(userName){
-    while (userName === ''){
+// const greeting = function(){
+    while (userName === '' || userName === null || userName === undefined){
         let userName = prompt('Welcome, may i know your name?');
         return userName;
-        alert('Your name is ' + userName)
     }
-}
+// }
+
+// greeting('');
 
 const game = function(){
-    // greeting('');
     createNr();
 
     for (let userAttempt = 0; userAttempt == 5; userAttempt++){
@@ -34,7 +34,7 @@ const game = function(){
             userAttempt--;
             alert('Yeah, well done! ! !'); 
             createNr();
-            return;
+            // return;
         }
         else{
             let userHintMin = randomnr - 5;
@@ -42,7 +42,7 @@ const game = function(){
             prompt('Sorry, that is not correct' + 
                 'The number is between ' + userHintMin + ' and ' + userHintMax +
                 'Try again, or type stop');
-            return;
+            // return;
         }
     }
 }
